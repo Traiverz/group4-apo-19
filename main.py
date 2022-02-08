@@ -35,8 +35,8 @@ ball = turtle.Turtle() # ещё один объект просто шарик
 ball.shape('circle') # в виде круга
 ball.color('blue')
 ball.penup() # поднимаем карандаш
-dx = 3 # прирост по Х (движение)
-dy = 2 # прирост по У (движение )
+dx = 5 # прирост по Х (движение)
+dy = 7 # прирост по У (движение )
 randx = randrange(-300, 300)
 randy = randrange(-300, 300)
 ball.goto(randx, randy) # случайное появление в рандомном месте шарика
@@ -78,7 +78,7 @@ while True: # бесконечный массив с обработкой слу
     ball.goto(x + dx, y + dy)  # перемещение шарика
 
     # обработка поедания змеёй шарика
-    if snake[0].distance(ball) < 20:
+    if snake[0].distance(ball) < 15:
         ball.goto(randrange(-300, 300, 20), randrange(-300, 300, 20))  # шарик переходит в новое место
         for i in range(3):
             snake_segment = turtle.Turtle()  # новый элемент змейки
