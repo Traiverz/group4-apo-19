@@ -22,3 +22,5 @@ class Border():
         border.goto(315, -315)
         border.goto(-315, -315)
         border.goto(-315, 315)
+
+

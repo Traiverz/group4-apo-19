@@ -20,3 +20,6 @@ class Trey():
         smile.goto(0, 0)
         smile.pendown()
         smile.shape('circle')
+
+
+
