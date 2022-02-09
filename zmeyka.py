@@ -1,5 +1,6 @@
 import turtle
 
+
 class zmeyka:
     snake = []
     len_snake = len(snake)
