@@ -79,7 +79,7 @@ while True: # бесконечный массив с обработкой слу
 
     # обработка поедания змеёй шарика
     if snake[0].distance(ball) < 15:
-        ball.goto(randrange(-300, 300, 20), randrange(-300, 300, 20))  # шарик переходит в новое место
+        ball.goto(randrange(-300, 300), randrange(-300, 300))  # шарик переходит в новое место
         for i in range(3):
             snake_segment = turtle.Turtle()  # новый элемент змейки
             snake_segment.shape('square')  # в виде квадрата
@@ -110,7 +110,7 @@ while True: # бесконечный массив с обработкой слу
 
     # обработка поедания змеёй еды
     if snake[0].distance(food) < 10: # если расстояние от головы до еды меньше 20:
-        food.goto(randrange(-300, 300, 20), randrange(-300, 300, 20)) # еда переходит в новое место
+        food.goto(randrange(-300, 300), randrange(-300, 300)) # еда переходит в новое место
         snake_segment = turtle.Turtle() # новый элемент змейки
         snake_segment.shape('square') # в виде квадрата
         snake_segment.color('green') # зелёного цвета

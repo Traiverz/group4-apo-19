@@ -10,13 +10,13 @@ class Border():
         border.goto(311, -311)
         border.goto(-311, -311)
         border.goto(-311, 311)
-        # вторая полоса кроя для красоты
+        # вторая полоса края для красоты
         border.goto(-313, 313)
         border.goto(313, 313)
         border.goto(313, -313)
         border.goto(-313, -313)
         border.goto(-313, 313)
-        # третья полоса кроя для красоты
+        # третья полоса края для красоты
         border.goto(-315, 315)
         border.goto(315, 315)
         border.goto(315, -315)
