@@ -1,55 +1,38 @@
-import time # библиотека времени
-import turtle # библиотека черепашки
-import border # внешняя библиотека с классом бордер
-import smile # внешняя библиотека с классом смайл
+#хххххххххххххххххххххххххххххх ИМПОРТИРОВАНИЕ БИБЛИОТЕК хххххххххххххххххххххххххххххх
+import time
+import turtle
+import border
+import smile
 import zmeyka
 import ball
-import math # математическая библиотека
-from random import randrange # библиотека случайных чисел
-
-# после подключения библиотек переходим к созданию окна программы и определения главных составляющих
-
-print("Правила игры: ")
-print('На поле будет находиться еда в движении и без движения')
-print('При поедании еды без движения вы получите 1 очко')
-print('При поедании еды в движении вы получите сразу 3 очка')
-print('Игра бесконечна и закончится проигрышем')
-
-# создание окна программы
-screen = turtle.Screen() # создает объект типа Turtle наследуя класс(окно программы)
-screen.title('Змейка: Сахаров, Буряк, Шамсутдинов, Сыздыков') # задает название окна
-screen.bgcolor('gold') # задаем цвет заднего фона
-screen.setup(650, 650) # определяем размер окна
-screen.tracer(0) # отключаем анимацию отрисовки черепашкой объектов
-
-
-
-cherepaha = ball.cherepaha()
-k = -300
-
-ball = turtle.Turtle() # ещё один объект просто шарик
-ball.shape('circle') # в виде круга
-ball.color('blue')
-ball.penup() # поднимаем карандаш
-dx = randrange(0, 10) # прирост по Х (движение)
-dy = randrange(0, 10) # прирост по У (движение )
+import math
+from random import randrange
+#хххххххххххххххххххххххххххххх СОЗДАНИЕ ОКНА ПРОГРАММЫ хххххххххххххххххххххххххххххх
+screen = turtle.Screen()
+screen.title('Змейка')
+screen.bgcolor('gold')
+screen.setup(650, 700)
+screen.tracer(0)
+#хххххххххххххххххххххххххххххх СОЗДАНИЕ НЕОБХОДИМЫХ ПЕРЕМЕННЫХ хххххххххххххххххххххххххххххх
+bord = border.Border(311, 311)
+smile = smile.Trey()
+snake = zmeyka.zmeyka()
+cherepaha = ball.cherepaha(-300, 0)
+#хххххххххххххххххххххххххххххх СОЗДАНИЕ ПЕРВОГО ТИПА ЕДЫ хххххххххххххххххххххххххххххх
+ball1 = turtle.Turtle()
+ball1.shape('circle')
+ball1.color('blue')
+ball1.penup()
+dx = randrange(0, 10)
+dy = randrange(0, 10)
 randx = randrange(-300, 300)
 randy = randrange(-300, 300)
-ball.goto(randx, randy) # случайное появление в рандомном месте шарика
-
-# отрисовка игровой карты, нужных переменных и змейки
-bord = border.Border() # создаем поля игровой карты через обращение к внешнему классу(файл border.py)
-tre = smile.Trey() # создаем треугольники в центре через обращение к внешнему классу(файл smile.py)
-score = 0 # переменная в которую будет записываться результат испытания
-snake = zmeyka.zmeyka() # создание массива который будет являться змейкой(содержать множество элементов змейки)
-# элементами змейки будут являться голова и тело змейки, в результат записывается количество элементов
-# тела змейки после второго (по умолчанию голова и 2 элемента тела)
-
-
-food = turtle.Turtle() # создаем переменную которая будет являться едой типа черепашка
-food.shape('circle') # задаем ей вид шара
-food.penup() # поднимаем карандаш
-food.goto(randrange(-300, 300, 20), randrange(-300, 300, 20)) # перемещаем в рандомные координаты
+ball1.goto(randx, randy)
+#хххххххххххххххххххххххххххххх СОЗДАНИЕ ВТОРОГО ТИПА ЕДЫ хххххххххххххххххххххххххххххх
+food = turtle.Turtle()
+food.shape('circle')
+food.penup()
+food.goto(randrange(-300, 300, 20), randrange(-300, 300, 20))
 
 screen.onkeypress(lambda: snake.snake[0].setheading(90), 'Up') # обработка события, по нажатию клавиш с клавиатуры для змейки (вверх)
 screen.onkeypress(lambda: snake.snake[0].setheading(270), 'Down') # обработка события, по нажатию клавиш с клавиатуры для змейки (вниз)
@@ -57,15 +40,16 @@ screen.onkeypress(lambda: snake.snake[0].setheading(180), 'Left') # обрабо
 screen.onkeypress(lambda: snake.snake[0].setheading(0), 'Right') # обработка события по нажатию клавиш с клавиатуры для змейки (вправо)
 screen.listen() # считывание нажатия на клавишу
 
+k = -300
+score = 0
+
 while True: # бесконечный массив с обработкой случаев выхода из него
-    x, y = ball.position()  # позиция
+    x, y = ball1.position()  # позиция
     if x + dx >= 295 or x + dx <= -295:  # обработка отскока
         dx = -dx  # переворачиваем прирост в обратное направление
     if y + dy >= 295 or y + dy <= -295:  # так же только по координате У
         dy = -dy  #
-    ball.goto(x + dx, y + dy)  # перемещение шарика
-
-
+    ball1.goto(x + dx, y + dy)  # перемещение шарика
 
     # движение тела змеи
     for i in range(len(snake.snake) - 1, 0, -1):  # перебираем все элементы змейки
@@ -81,10 +65,12 @@ while True: # бесконечный массив с обработкой слу
     x_cor = snake.snake[0].xcor()  # переменная с координатой Х головы змеи
     y_cor = snake.snake[0].ycor()  # переменная с координатой У головы змеи
     if x_cor > 300 or x_cor < -300:  # если уходит за края карты
+        smile.lose(1, 40, 55, 80, 95, 120, 180, 100)
         snake.die(screen, score)
         break
     if y_cor > 300 or y_cor < -300:  # если уходит за края карты
         snake.die(screen, score)
+        smile.lose(1, 40, 55, 80, 95, 120, 180, 100)
         break
 
     # обработка поедания змеёй еды
@@ -93,18 +79,18 @@ while True: # бесконечный массив с обработкой слу
         snake.eat(1, score)
         score = score + 1 # добавляем одно очко в результат
 
-    if snake.snake[0].distance(ball) < 15:
-        ball.goto(randrange(-300, 300), randrange(-300, 300))  # еда переходит в новое место
+    if snake.snake[0].distance(ball1) < 15:
+        ball1.goto(randrange(-300, 300), randrange(-300, 300))  # еда переходит в новое место
         snake.eat(3, score)
         score = score + 3
 
     # вернёмся к свободной черепашке и задаю ее движение
     cherepaha.pos(k) # перемещение свободный черепашки
-    k = k + 10
+    x, y = cherepaha.cherepaha.position()
+    if k >= 300:
+        k = -300
+    k = k + 5
     cherepaha.dvig(screen)
-
-
-
 
     time.sleep(0.1) # остановка времени работы программы (так можно настроить сложность игры)
 

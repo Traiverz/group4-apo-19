@@ -1,25 +1,45 @@
 import turtle
 class Trey():
     def __init__(self):
-        # треугольники посреди поля
         smile = turtle.Turtle()
         smile.hideturtle()
         smile.penup()
-        smile.goto(0, 0)
+        smile.goto(0, 280)
         smile.pendown()
-        smile.goto(100, 100)
-        smile.goto(100, 0)
-        smile.goto(100, 100)
+        for i in range(360):
+            smile.right(1)
+            smile.forward(2)
         smile.penup()
-        smile.goto(0, 0)
+        smile.goto(40, 120)
+        smile.left(180)
         smile.pendown()
-        smile.goto(-100, 100)
-        smile.goto(-100, 0)
-        smile.goto(100, 0)
+        smile.forward(80)
         smile.penup()
-        smile.goto(0, 0)
+        smile.goto(-40, 250)
+        smile.left(90)
         smile.pendown()
-        smile.shape('circle')
+        smile.forward(50)
+        smile.penup()
+        smile.goto(40, 250)
+        smile.pendown()
+        smile.forward(50)
 
-
-
+    def lose(self, x, y, z, m, u, i, o, p):
+        smil = turtle.Turtle()
+        smil.penup()
+        smil.color("red")
+        smil.goto(m, i)
+        smil.right(o)
+        smil.pendown()
+        smil.forward(i)
+        smil.penup()
+        smil.goto(m, i)
+        smil2 = turtle.Turtle()
+        smil2.color("black")
+        smil2.penup()
+        smil2.goto(z, p)
+        smil2.left(u)
+        smil2.pendown()
+        for i in range(o):
+            smil2.forward(x)
+            smil2.left(x)
