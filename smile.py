@@ -1,4 +1,5 @@
 import turtle
+
 class Trey():
     def __init__(self):
         smile = turtle.Turtle()

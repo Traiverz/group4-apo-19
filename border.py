@@ -1,4 +1,5 @@
 import turtle
+
 class Border():
     def __init__(self, x, y):
         border = turtle.Turtle()
@@ -27,7 +28,7 @@ class Border():
         turtle.goto(-x+11, y+11)
         turtle.write("Групповой проект "
                      "Сахаров, Буряк, Сыздыков, Шамсутдинов", move=False, font=("Arial", 16, "normal"))
-        turtle.goto(-x+20, -340)
+        turtle.goto(-x+20, -y-29)
         turtle.write("Синяя еда - 3 очка, черная еда - 1 очко. "
                      "Управление змейкой стрелочками", move=False, font=("Arial", 13, "normal"))
 

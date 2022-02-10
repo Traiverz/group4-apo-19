@@ -18,6 +18,6 @@ class cherepaha():
         self.X = x
         self.Y = math.sin(self.X)
 
-    def dvig(self, u):
+    def dvig(self, x):
         self.cherepaha.goto(self.X, self.Y)
-        u.update()
+        x.update()

@@ -5,42 +5,39 @@ import border
 import smile
 import zmeyka
 import ball
-import math
 from random import randrange
 #хххххххххххххххххххххххххххххх СОЗДАНИЕ ОКНА ПРОГРАММЫ хххххххххххххххххххххххххххххх
-for i in range(1):
-    screen = turtle.Screen()
-    screen.title('Змейка')
-    screen.bgcolor('gold')
-    screen.setup(650, 700)
-    screen.tracer(0)
+screen = turtle.Screen()
+screen.title('Змейка')
+screen.bgcolor('gold')
+screen.setup(650, 700)
+screen.tracer(0)
 #хххххххххххххххххххххххххххххх СОЗДАНИЕ НЕОБХОДИМЫХ ПЕРЕМЕННЫХ хххххххххххххххххххххххххххххх
-    bord = border.Border(311, 311)
-    smile = smile.Trey()
-    snake = zmeyka.zmeyka()
-    cherepaha = ball.cherepaha(-300, 0)
+bord = border.Border(311, 311)
+smile = smile.Trey()
+snake = zmeyka.zmeyka()
+cherepaha = ball.cherepaha(-300, 0)
 #хххххххххххххххххххххххххххххх СОЗДАНИЕ ПЕРВОГО ТИПА ЕДЫ хххххххххххххххххххххххххххххх
-    ball1 = turtle.Turtle()
-    ball1.shape('circle')
-    ball1.color('blue')
-    ball1.penup()
-    dx = randrange(0, 10)
-    dy = randrange(0, 10)
-    randx = randrange(-300, 300)
-    randy = randrange(-300, 300)
-    ball1.goto(randx, randy)
+ball1 = turtle.Turtle()
+ball1.shape('circle')
+ball1.color('blue')
+ball1.penup()
+dx = randrange(0, 10)
+dy = randrange(0, 10)
+randx = randrange(-300, 300)
+randy = randrange(-300, 300)
+ball1.goto(randx, randy)
 #хххххххххххххххххххххххххххххх СОЗДАНИЕ ВТОРОГО ТИПА ЕДЫ хххххххххххххххххххххххххххххх
-    food = turtle.Turtle()
-    food.shape('circle')
-    food.penup()
-    food.goto(randrange(-300, 300, 20), randrange(-300, 300, 20))
+food = turtle.Turtle()
+food.shape('circle')
+food.penup()
+food.goto(randrange(-300, 300), randrange(-300, 300))
 
-for i in range(1):
-    screen.onkeypress(lambda: snake.snake[0].setheading(90), 'Up') # обработка события, по нажатию клавиш с клавиатуры для змейки (вверх)
-    screen.onkeypress(lambda: snake.snake[0].setheading(270), 'Down') # обработка события, по нажатию клавиш с клавиатуры для змейки (вниз)
-    screen.onkeypress(lambda: snake.snake[0].setheading(180), 'Left') # обработка события по нажатию клавиш с клавиатуры для змейки (влево)
-    screen.onkeypress(lambda: snake.snake[0].setheading(0), 'Right') # обработка события по нажатию клавиш с клавиатуры для змейки (вправо)
-    screen.listen() # считывание нажатия на клавишу
+screen.onkeypress(lambda: snake.snake[0].setheading(90), 'Up') # обработка события, по нажатию клавиш с клавиатуры для змейки (вверх)
+screen.onkeypress(lambda: snake.snake[0].setheading(270), 'Down') # обработка события, по нажатию клавиш с клавиатуры для змейки (вниз)
+screen.onkeypress(lambda: snake.snake[0].setheading(180), 'Left') # обработка события по нажатию клавиш с клавиатуры для змейки (влево)
+screen.onkeypress(lambda: snake.snake[0].setheading(0), 'Right') # обработка события по нажатию клавиш с клавиатуры для змейки (вправо)
+screen.listen() # считывание нажатия на клавишу
 
 k = -300
 score = 0
@@ -88,7 +85,6 @@ while True: # бесконечный массив с обработкой слу
 
     # вернёмся к свободной черепашке и задаю ее движение
     cherepaha.pos(k) # перемещение свободный черепашки
-    x, y = cherepaha.cherepaha.position()
     if k >= 300:
         k = -300
     k = k + 5
