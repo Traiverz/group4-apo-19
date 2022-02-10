@@ -30,6 +30,3 @@ git status
 сборка ехе файла
 pip install PyInstaller
 pyinstaller
-
-
-123
