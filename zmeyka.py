@@ -36,6 +36,7 @@ class zmeyka:
                     snake_n.color('white')
             self.snake.append(snake_n)
 
+
     def die(self, x, y):
         x.bgcolor('red')
         turtle.goto(-163, -20)
