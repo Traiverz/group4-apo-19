@@ -1,46 +1,46 @@
-import turtle
+import turtle # библиотека
 
-class Trey():
-    def __init__(self):
-        smile = turtle.Turtle()
-        smile.hideturtle()
-        smile.penup()
-        smile.goto(0, 280)
-        smile.pendown()
-        for i in range(360):
-            smile.right(1)
-            smile.forward(2)
-        smile.penup()
-        smile.goto(40, 120)
-        smile.left(180)
-        smile.pendown()
-        smile.forward(80)
-        smile.penup()
-        smile.goto(-40, 250)
-        smile.left(90)
-        smile.pendown()
-        smile.forward(50)
-        smile.penup()
-        smile.goto(40, 250)
-        smile.pendown()
-        smile.forward(50)
+class Trey(): # новый класс
+    def __init__(self): # конструктор класса
+        smile = turtle.Turtle() # новый объект
+        smile.hideturtle() # спрятать черепаху
+        smile.penup() # поднял карандаш
+        smile.goto(0, 280) # перемещение
+        smile.pendown() # опустил карандаш
+        for i in range(360): # цикл
+            smile.right(1) # поворот
+            smile.forward(2) # перемещение
+        smile.penup() # поднял карандаш
+        smile.goto(40, 120) # перемещение
+        smile.left(180) # поворот
+        smile.pendown() # опустил карандаш
+        smile.forward(80) # перемещение
+        smile.penup() # поднял карандаш
+        smile.goto(-40, 250) # перемещение
+        smile.left(90) # перемещение
+        smile.pendown() # опустил карандаш
+        smile.forward(50) # перемещение
+        smile.penup() # поднял карандаш
+        smile.goto(40, 250) # перемещение
+        smile.pendown() # опустил карандаш
+        smile.forward(50) # перемещение
 
-    def lose(self, x, y, z, m, u, i, o, p):
-        smil = turtle.Turtle()
-        smil.penup()
-        smil.color("red")
-        smil.goto(m, i)
-        smil.right(o)
-        smil.pendown()
-        smil.forward(i)
-        smil.penup()
-        smil.goto(m, i)
-        smil2 = turtle.Turtle()
-        smil2.color("black")
-        smil2.penup()
-        smil2.goto(z, p)
-        smil2.left(u)
-        smil2.pendown()
-        for i in range(o):
-            smil2.forward(x)
-            smil2.left(x)
+    def lose(self, x, y, z, m, u, i, o, p): # новый метод
+        smil = turtle.Turtle() # новый объект
+        smil.penup() # поднял карандаш
+        smil.color("red") # цвет красный
+        smil.goto(m, i) # перемещение
+        smil.right(o) # поворот
+        smil.pendown() # опустил карандаш
+        smil.forward(i) # перемещение
+        smil.penup() # поднял карандаш
+        smil.goto(m, i) # перемещение
+        smil2 = turtle.Turtle() # новый объект
+        smil2.color("black") # цвет черный
+        smil2.penup() # поднял карандаш
+        smil2.goto(z, p) # перемещение
+        smil2.left(u) # поворот
+        smil2.pendown() # опустил карандаш
+        for i in range(o): # цикл
+            smil2.forward(x) # перемещение
+            smil2.left(x) # поворот
